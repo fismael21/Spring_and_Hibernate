@@ -1,10 +1,13 @@
 package com.elegido.codes;
 
+import org.apache.commons.lang3.time.StopWatch;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class HelloSpringApp {
 
 	public static void main(String[] args) {
+		StopWatch myStopWatch = new StopWatch();
+		myStopWatch.start();
 		// Load the spring configuration file
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
@@ -19,7 +22,8 @@ public class HelloSpringApp {
 
 		// Close context
 		context.close();
-
+		myStopWatch.stop();
+		System.out.println("Time: " + myStopWatch.getTime() + " millis");
 	}
 
 }
